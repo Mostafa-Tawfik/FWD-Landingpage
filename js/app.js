@@ -23,7 +23,8 @@
  * 
 */
 const sections = document.querySelectorAll("section");
-const navbarList = document.querySelector('#navbar__list')
+const navbarList = document.querySelector('#navbar__list');
+const frag = document.createDocumentFragment();
 
 /**
  * End Global Variables
@@ -40,15 +41,30 @@ const navbarList = document.querySelector('#navbar__list')
 */
 
 // build the nav
-sections.forEach(function(addItem) {
+sections.forEach(function(elem) {
     const newList = document.createElement('li');
-    const newText = addItem.getAttribute('data-nav');
+    const text = elem.getAttribute('data-nav');
     const newLink = document.createElement('a');
-    newLink.append(newText);
-    newList.append(newLink);
-    navbarList.appendChild(newList);
+    newLink.textContent = text;
+    newList.appendChild(newLink);
+
+    // scroll into view
+    newList.addEventListener('click',() => {
+            elem.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        })
+
+    // style the navbar
+    newList.setAttribute('style','color: black; padding: 1rem; font-weight:bold; float: left');
+    
+    // append to Fragment
+    frag.appendChild(newList);
 });
-// style the nav
+
+// append to navbar__list
+navbarList.appendChild(frag);
 
 // Add class 'active' to section when near top of viewport
 
