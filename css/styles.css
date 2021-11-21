@@ -123,6 +123,19 @@ section {
     }
 }
 
+/* modify the content to match mobile devices */
+@media only screen and (max-width: 600px){
+    .navbar__menu .menu__link {
+        padding: 0.1em;
+        font-size: 0.8em;
+    }
+    .landing__container {
+        max-width: 30em;
+        padding: 0.5em;
+        font-size: 0.8em;
+    }
+}
+
 section:nth-of-type(even) .landing__container {
     margin-right: 0;
     margin-left: auto;

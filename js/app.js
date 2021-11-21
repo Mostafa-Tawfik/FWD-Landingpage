@@ -28,14 +28,6 @@ const frag = document.createDocumentFragment();
 
 /**
  * End Global Variables
- * Start Helper Functions
- * 
-*/
-
-
-
-/**
- * End Helper Functions
  * Begin Main Functions
  * 
 */
@@ -51,7 +43,7 @@ sections.forEach((elem) => {
     anchor.href = '#text';
     li.appendChild(anchor);
 
-    // scroll into view
+    // Scroll to anchor using scroll into view
     anchor.addEventListener('click', () => {
         elem.scrollIntoView({
             behavior: 'smooth',
@@ -70,10 +62,13 @@ sections.forEach((elem) => {
 navbarList.appendChild(frag);
 
 // Add class 'active' to section when near top of viewport
+// Make a function to set the class for active section
 function switchToActiveSection (){
     sections.forEach(active => {
+        // Determine when to call using getBoundingClientRect
         const position = active.getBoundingClientRect();
-        if (position.top >= 0 && position.bottom <= window.innerHeight){
+        if (position.top >= 10 && position.bottom <= window.innerHeight){
+            // Loop over sections to remove the class & add it to the active one
                 sections.forEach(notActive => {
                     notActive.classList.remove('your-active-class');
                 });
@@ -81,19 +76,16 @@ function switchToActiveSection (){
             };
     });
 };
-// Scroll to anchor ID using scrollTO event
-
 
 /**
  * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
+ * Begin Events 
+ */
 
 // Set sections as active
 window.addEventListener('scroll', switchToActiveSection);
+
+/**
+ * End Events
+ */
 
