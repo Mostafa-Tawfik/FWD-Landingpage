@@ -8,7 +8,7 @@ This project requires you to build a multi-section landing page, with a dynamica
 ![alt text](https://scontent.fcai21-3.fna.fbcdn.net/v/t1.6435-9/94516326_110637913955679_2367428510911299584_n.png?_nc_cat=107&ccb=1-5&_nc_sid=e3f864&_nc_ohc=XV-6MaB7YE8AX-Dhcb9&_nc_ht=scontent.fcai21-3.fna&oh=df5a83596bcbc649d9bd8a87bf585777&oe=61C1A29A)
 
 # Project Preview
-![Alt Text](https://i.imgur.com/E0YQYpo.gif)
+![Alt Text](https://imgur.com/o297Iez.gif)
 
 # Project Requirments
 
