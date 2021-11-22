@@ -25,6 +25,7 @@
 const sections = document.querySelectorAll("section");
 const navbarList = document.querySelector('#navbar__list');
 const frag = document.createDocumentFragment();
+const header = document.querySelector('.page__header');
 
 /**
  * End Global Variables
@@ -77,6 +78,22 @@ function switchToActiveSection (){
     });
 };
 
+//function to hide the navbar while not scrolling
+function checkScrolling(){
+    let scrolling = true;
+    // when not scrolling hide the header
+    window.addEventListener('scroll',()=> {
+        scrolling = setTimeout(() => {
+            header.style.visibility = 'hidden';
+        }, 2500);
+        scrolling = false;
+    });
+    // when scrolling show the header
+    if(scrolling = true){
+        header.style.visibility = 'visible';
+    }
+}
+
 /**
  * End Main Functions
  * Begin Events 
@@ -85,7 +102,9 @@ function switchToActiveSection (){
 // Set sections as active
 window.addEventListener('scroll', switchToActiveSection);
 
+// hide navbar while not scrolling
+window.addEventListener('scroll',checkScrolling);
+
 /**
  * End Events
  */
-
