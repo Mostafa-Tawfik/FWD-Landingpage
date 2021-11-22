@@ -25,6 +25,7 @@ This project requires you to build a multi-section landing page, with a dynamica
 - an active state:
     - Add an active state to your navigation items when a section is in the viewport.
 - Hide fixed navigation bar while not scrolling.
+- Add scroll to top button.
 
 # Project Specification
 

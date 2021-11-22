@@ -26,6 +26,7 @@ const sections = document.querySelectorAll("section");
 const navbarList = document.querySelector('#navbar__list');
 const frag = document.createDocumentFragment();
 const header = document.querySelector('.page__header');
+const btn = document.querySelector('#upBtn');
 
 /**
  * End Global Variables
@@ -78,21 +79,42 @@ function switchToActiveSection (){
     });
 };
 
-//function to hide the navbar while not scrolling
+// function to hide the navbar while not scrolling
 function checkScrolling(){
-    let scrolling = true;
+    let scrolling;
+    let isScrolling = true;
     // when not scrolling hide the header
     window.addEventListener('scroll',()=> {
         scrolling = setTimeout(() => {
             header.style.visibility = 'hidden';
-        }, 2500);
-        scrolling = false;
+        }, 3000);
+        isScrolling = false;
     });
     // when scrolling show the header
-    if(scrolling = true){
+    if(isScrolling = true){
+        clearTimeout(scrolling);
         header.style.visibility = 'visible';
     }
 }
+
+// scroll to top button
+// hide the button
+function scrollBtn() {
+    if(document.body.scrollTop > 1000){
+        btn.style.display='block';
+    }else{
+        btn.style.display='none';
+    }
+}
+window.onscroll = () => { scrollBtn(); };
+
+// scroll to top
+function goUp() {
+    document.body.scrollTop = 0;
+}
+
+// style the button
+btn.setAttribute('style','display: none; position: fixed; bottom: 2rem; right: 1rem; padding: 0.5rem');
 
 /**
  * End Main Functions
@@ -108,3 +130,4 @@ window.addEventListener('scroll',checkScrolling);
 /**
  * End Events
  */
+
