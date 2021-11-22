@@ -107,12 +107,10 @@ function scrollBtn() {
     }
 }
 window.onscroll = () => { scrollBtn(); };
-
 // scroll to top
 function goUp() {
-    document.body.scrollTop = 0;
+    window.scrollTo({top:0, behavior:"smooth"});
 }
-
 // style the button
 btn.setAttribute('style','display: none; position: fixed; bottom: 2rem; right: 1rem; padding: 0.5rem');
 
