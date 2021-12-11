@@ -80,39 +80,27 @@ function switchToActiveSection (){
 };
 
 // function to hide the navbar while not scrolling
-function checkScrolling(){
-    let scrolling;
-    let isScrolling = true;
-    // when not scrolling hide the header
-    window.addEventListener('scroll',()=> {
-        scrolling = setTimeout(() => {
-            header.style.visibility = 'hidden';
-        }, 3000);
-        isScrolling = false;
-    });
-    // when scrolling show the header
-    if(isScrolling = true){
-        clearTimeout(scrolling);
-        header.style.visibility = 'visible';
+const nav = document.querySelector('.navbar__menu');
+let scrollPos = window.scrollY;
+
+window.addEventListener('scroll', ()=> {
+    if (scrollPos < window.scrollY){
+        nav.classList.add('nav--hidden');
+    } else {
+        nav.classList.remove('nav--hidden');
     }
-}
+    scrollPos = window.scrollY;
+});
 
 // scroll to top button
 // hide the button
-function scrollBtn() {
-    if(document.body.scrollTop > 1000){
-        btn.style.display='block';
-    }else{
-        btn.style.display='none';
-    }
+window.onscroll= function () {
+    this.scrollY >= 1000 ?btn.classList.add('show'):btn.classList.remove('show');
 }
-window.onscroll = () => { scrollBtn(); };
 // scroll to top
 function goUp() {
     window.scrollTo({top:0, behavior:"smooth"});
 }
-// style the button
-btn.setAttribute('style','display: none; position: fixed; bottom: 2rem; right: 1rem; padding: 0.5rem');
 
 /**
  * End Main Functions
@@ -121,9 +109,6 @@ btn.setAttribute('style','display: none; position: fixed; bottom: 2rem; right: 1
 
 // Set sections as active
 window.addEventListener('scroll', switchToActiveSection);
-
-// hide navbar while not scrolling
-window.addEventListener('scroll',checkScrolling);
 
 /**
  * End Events

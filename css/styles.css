@@ -16,6 +16,9 @@ body {
     margin: 0;
     font-family: 'Merriweather', serif;
     color: #fff;
+    --nav-height: 80px;
+    padding-top: var(--nav-height);
+
 }
 
 
@@ -48,6 +51,9 @@ p {
 /* ---- Layout Rules ---- */
 main {
     margin: 10vh 1em 10vh;
+    scroll-snap-type: y mandatory;
+    max-width: 100vh;
+    /* overflow-y:scroll; */
 }
 
 .main-hero {
@@ -58,12 +64,27 @@ main {
 section {
     position: relative;
     min-height: 80vh;
+    scroll-snap-align: start;
 }
 
 
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+.navbar__menu {
+    width: 100%;
+    height: var(--nav-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    transition: 1s;
+}
+
+.nav--hidden {
+    transform: translateY(calc(-1*var(--nav-height)));
+}
+
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
@@ -106,6 +127,18 @@ section {
 
 .page__footer p{
     color: #fff;
+}
+
+#upBtn {
+    position: fixed; 
+    bottom: 2rem; 
+    right: -3rem; 
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: 1s;
+}
+#upBtn.show {
+    right: 2rem;
 }
 
 
