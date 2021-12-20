@@ -1,24 +1,4 @@
 /**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
- * 
-*/
-
-/**
- * Comments should be present at the beginning of each procedure and class.
- * Great to have comments before crucial code sections within the procedure.
-*/
-
-/**
  * Define Global Variables
  * 
 */
@@ -65,11 +45,11 @@ navbarList.appendChild(frag);
 
 // Add class 'active' to section when near top of viewport
 // Make a function to set the class for active section
-function switchToActiveSection (){
+window.addEventListener('scroll', ()=> {
     sections.forEach(active => {
         // Determine when to call using getBoundingClientRect
         const position = active.getBoundingClientRect();
-        if (position.top >= 10 && position.bottom <= window.innerHeight){
+        if (position.top >= 10 && position.bottom <= window.outerHeight){
             // Loop over sections to remove the class & add it to the active one
                 sections.forEach(notActive => {
                     notActive.classList.remove('your-active-class');
@@ -77,7 +57,7 @@ function switchToActiveSection (){
                 active.classList.add('your-active-class');
             };
     });
-};
+});
 
 // function to hide the navbar while not scrolling
 const nav = document.querySelector('.navbar__menu');
@@ -94,8 +74,8 @@ window.addEventListener('scroll', ()=> {
 
 // scroll to top button
 // hide the button
-window.onscroll= function () {
-    this.scrollY >= 1000 ?btn.classList.add('show'):btn.classList.remove('show');
+window.onscroll= () => {
+    this.scrollY >= 300 ?btn.classList.add('show'):btn.classList.remove('show');
 }
 // scroll to top
 function goUp() {
@@ -104,13 +84,5 @@ function goUp() {
 
 /**
  * End Main Functions
- * Begin Events 
- */
-
-// Set sections as active
-window.addEventListener('scroll', switchToActiveSection);
-
-/**
- * End Events
  */
 
