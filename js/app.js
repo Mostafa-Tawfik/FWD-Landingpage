@@ -29,7 +29,7 @@ sections.forEach((elem) => {
     anchor.addEventListener('click', () => {
         elem.scrollIntoView({
             behavior: 'smooth',
-            block: 'center'
+            block: 'start'
         });
     });
 
